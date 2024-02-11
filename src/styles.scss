@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+// @import './assets/scss/style';
+@import './assets/scss/variables';
+// @import './assets/scss/global';
+@import './assets/scss/grid';
+
+
+@font-face {
+  font-family: LTBukra;
+  src: url(./assets/fonts/29ltbukra.light.ttf);
+}
+
+@font-face {
+  font-family: LTBukra;
+  src: url(./assets/fonts/29ltbukra.bold.ttf);
+}
+
+@font-face {
+  font-family: LTBukra;
+  src: url(./assets/fonts/29ltbukra.regular.ttf);
+}
+
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+:root {
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  font-family: 'LTBukra', 'arial';
+}
+
+body {
+  background-color: var(--background) !important;
+  overflow-x: hidden;
+}

@@ -1,0 +1,17 @@
+<div class="post">
+  <div class="post-header">
+    <img [src]="userImages[5]" alt="Profile Image" class="me-2">
+    <span>{{ currnetUser }}</span>
+  </div>
+  <img [src]="postImg" alt="Post Image" class="post-img">
+  <p class="post-body">{{ post.body?.length > 100 ? post.body.slice(0, 100) + '...' : post.body }}</p>
+  <button (click)="loadComments(post.id)" class="comment-btn" [class.spinner]="loading"
+    [ngClass]="loading ? 'spinner comment-btn-dimmed' : ''">Show Comments</button>
+  <div *ngFor="let comment of comments; index as i" class="comment">
+    <div class="comment-header">
+      <img [src]="userImages[i]" alt="img" class="me-2">
+      <span class="comment-name">{{ comment.email }}</span>
+    </div>
+    <p class="pt-2 ps-3 comment-body">{{ comment.name }}: {{ comment.body }}</p>
+  </div>
+</div>
