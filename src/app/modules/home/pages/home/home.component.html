@@ -4,7 +4,5 @@
       <app-post [post]="post" [currnetUser]="apiService.currentUser"></app-post>
     </div>
   </div>
-  <!-- <div class="placeholder" *ngIf="!(apiService.posts$ | async)">
-  </div> -->
-  <img *ngIf="!(apiService.posts$ | async)" src="assets/images/empty.png" class="w-100" alt="">
+  <img *ngIf="apiService.showPlaceholder" src="assets/images/empty.png" class="w-100" alt="">
 </div>

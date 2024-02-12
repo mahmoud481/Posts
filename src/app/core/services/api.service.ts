@@ -12,6 +12,7 @@ export class ApiService {
   users$ = new Observable();
   posts$:any = new Observable();
   currentUser: any = '';
+  showPlaceholder:boolean = true;
 
   private usersUrl = `${environment.baseURL}/users`;
   private postsUrl = `${environment.baseURL}/posts`;
@@ -28,10 +29,13 @@ export class ApiService {
 
 
   getPosts(userId: number): Observable<any[]> {
-      return this.http.get<any[]>(`${this.postsUrl}?userId=${userId}`).pipe(
-        tap(posts => posts),
-        catchError(this.handleError<any[]>('getPosts', []))
-      );
+    return this.http.get<any[]>(`${this.postsUrl}?userId=${userId}`).pipe(
+      tap(posts => {
+        this.showPlaceholder = false
+        return posts
+      }),
+      catchError(this.handleError<any[]>('getPosts', []))
+    );
   }
 
   getComments(postId: number): Observable<any[]> {
