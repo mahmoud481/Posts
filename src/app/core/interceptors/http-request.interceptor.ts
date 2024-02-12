@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
   HttpResponse
 } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import { CommonService } from '../services/common.service';
 
 @Injectable()
@@ -24,6 +24,11 @@ export class HttpRequestInterceptor implements HttpInterceptor {
            this.common.loading.next(false)
         }
         return event;
+      }),
+        catchError((error) => {
+
+        this.common.loading.next(false)
+        return throwError(error);
       })
     );
   }
