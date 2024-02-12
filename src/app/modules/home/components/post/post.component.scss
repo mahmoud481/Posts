@@ -70,6 +70,10 @@
 
 
 @media (max-width: 1024px) {
+  .post-header span {
+    font-size: .9rem;
+  }
+
   .post-body {
     font-size: .8rem;
   }
@@ -87,5 +91,24 @@
 
   .comment-body {
     font-size: .7rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .post-header span {
+    font-size: .75rem;
+  }
+
+  .comment-btn {
+    padding: 8px 14px 8px 14px;
+  }
+
+  .comment-name,
+  .comment-btn {
+    font-size: .65rem;
+  }
+
+  .comment-body {
+    font-size: .6rem;
   }
 }

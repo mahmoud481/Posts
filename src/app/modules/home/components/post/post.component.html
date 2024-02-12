@@ -10,7 +10,10 @@
   <div *ngFor="let comment of comments; index as i" class="comment">
     <div class="comment-header">
       <img [src]="userImages[i]" alt="img" class="me-2">
-      <span class="comment-name">{{ comment.email }}</span>
+      <span class="comment-name">
+        {{ comment.email?.length > 10 ? comment.email.slice(0, 10) + '...' : comment.email }}
+        <!-- {{ comment.email }} -->
+      </span>
     </div>
     <p class="pt-2 ps-3 comment-body">{{ comment.name }}: {{ comment.body }}</p>
   </div>
